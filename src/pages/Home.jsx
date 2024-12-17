@@ -86,12 +86,12 @@ function QuickLinks() {
       link: "/#archives",
     },
     {
-      display: "Halal Restaurant",
-      link: "/#halalrestaurant",
-    },
-    {
       display: "Hijri Reminder",
       link: "/#hijrireminder",
+    },
+    {
+      display: "Home",
+      link: "/#",
     },
   ];
   return (
@@ -258,7 +258,7 @@ function Archives() {
                     className="gap-2 grid bg-accent-light p-10 rounded-[50px] h-[500px] cursor-pointer overflow-hidden select-none"
                   >
                     <img
-                      className="w-full h-[200px] object-center object-cover"
+                      className="rounded-[10px] w-full h-[200px] object-center object-cover"
                       src={item.image}
                       alt=""
                     />

@@ -21,15 +21,17 @@ export default function Navbar({ className }) {
         <div className="flex flex-nowrap justify-end items-end w-fit RIGHT">
           {menuItems.map((item, index) => {
             return (
-              <div
-                className="hover:bg-green-950 p-3 rounded text-nowrap transition-all cursor-pointer"
-                onClick={() => {
-                  document.getElementById(item.id).scrollIntoView();
-                  navigate(item.link);
-                }}
-              >
-                {item.display}
-              </div>
+              <a href={item.link}>
+                <div
+                  className="hover:bg-green-950 p-3 rounded text-nowrap transition-all cursor-pointer"
+                  onClick={() => {
+                    document.getElementById(item.id).scrollIntoView();
+                    navigate(item.link);
+                  }}
+                >
+                  {item.display}
+                </div>
+              </a>
             );
           })}
         </div>
