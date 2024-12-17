@@ -12,9 +12,11 @@ export default function Navbar({ className }) {
         }
       >
         <div className="w-full LEFT">
-          <p className="font-black text-[1.2rem] leading-tight">
-            HERITAGE <br /> APP
-          </p>
+          <a href="/">
+            <p className="font-black text-[1.2rem] leading-tight">
+              HERITAGE <br /> APP
+            </p>
+          </a>
         </div>
         <div className="flex flex-nowrap justify-end items-end w-fit RIGHT">
           {menuItems.map((item, index) => {
@@ -24,7 +26,6 @@ export default function Navbar({ className }) {
                 onClick={() => {
                   document.getElementById(item.id).scrollIntoView();
                   navigate(item.link);
-
                 }}
               >
                 {item.display}

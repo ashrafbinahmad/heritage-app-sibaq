@@ -79,19 +79,19 @@ function QuickLinks() {
   const quickLinks = [
     {
       display: "Heritage Map",
-      link: "/heritagemap",
+      link: "/#heritagemap",
     },
     {
       display: "Archives",
-      link: "/archives",
+      link: "/#archives",
     },
     {
       display: "Halal Restaurant",
-      link: "/halalrestaurant",
+      link: "/#halalrestaurant",
     },
     {
       display: "Hijri Reminder",
-      link: "/hijrireminder",
+      link: "/#hijrireminder",
     },
   ];
   return (
@@ -99,14 +99,13 @@ function QuickLinks() {
       <div className="max-xl:gap-3 grid grid-cols-4 max-lg:grid-cols-2 m-auto p-10 max-w-[1300px] text-center text-white cursor-pointer">
         {quickLinks.map((item, index) => {
           return (
-            <div
-              onClick={() => {
-                navigate(item.link);
-              }}
-              className="xl:bg-[url(/images/4.png)] max-xl:bg-accent-dark bg-contain bg-no-repeat bg-center p-[5rem] max-xl:p-[2rem]"
-            >
-              {item.display}
-            </div>
+            <a href={item.link}>
+              <div
+                className="xl:bg-[url(/images/4.png)] max-xl:bg-accent-dark bg-contain bg-no-repeat bg-center p-[5rem] max-xl:p-[2rem]"
+              >
+                {item.display}
+              </div>
+            </a>
           );
         })}
       </div>
@@ -127,7 +126,7 @@ function Heritagemap() {
   }, []);
 
   return (
-    <section className="">
+    <section id="heritagemap" className="">
       <h2 className="py-5 font-black text-[50px] text-accent-dark text-center">
         Heritage Map
       </h2>
@@ -205,7 +204,7 @@ function Archives() {
   const swiperRef = useRef(null);
   const navigate = useNavigate();
   return (
-    <section className="pb-[5rem]">
+    <section className="pb-[5rem]" id="archives">
       <h2 className="py-5 font-black text-[50px] text-accent-dark text-center select-none">
         Archives
       </h2>
@@ -258,7 +257,11 @@ function Archives() {
                     }}
                     className="gap-2 grid bg-accent-light p-10 rounded-[50px] h-[500px] cursor-pointer overflow-hidden select-none"
                   >
-                    <img className="w-full h-[200px] object-center object-cover" src={item.image}  alt="" />
+                    <img
+                      className="w-full h-[200px] object-center object-cover"
+                      src={item.image}
+                      alt=""
+                    />
                     <h3 className="font-black font-manjari text-2xl">
                       {item.name}
                     </h3>
@@ -279,7 +282,7 @@ function Archives() {
 function HijriReminder() {
   const [showFull, setShowFull] = useState(false);
   return (
-    <section className="pb-[5rem]">
+    <section className="pb-[5rem]" id="hijrireminder">
       <h2 className="py-5 font-black text-[50px] text-accent-dark text-center select-none">
         Hijri Reminder
       </h2>
