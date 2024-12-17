@@ -5,7 +5,15 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        manjari: '"Manjari", sans-serif'
+      },
+      colors: {
+        'accent-dark': '#1a5d4d',
+        'accent-light': '#b6ffee',
+      }
+    },
   },
   plugins: [],
 }

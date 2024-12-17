@@ -2,6 +2,8 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import heritagePlaces from "../data/heritagePlaces";
 import Navbar from "../components/Navbar";
+import halalHotels from "../data/halalHotels";
+import Button from "../admin/Button";
 
 export default function ArchiveArticle() {
   const { archiveLink } = useParams();
@@ -15,8 +17,8 @@ export default function ArchiveArticle() {
             <div className="LEFT">
               <h1 className="font-black text-[30px]">{archive.name}</h1>
               <ul className="mt-5 font-bold">
-                <li>ജനനം: {archive.born}</li>
-                <li>മരണം: {archive.death}</li>
+                {archive.born && <li>ജനനം: {archive.born}</li>}
+                {archive.death && <li>മരണം: {archive.death}</li>}
               </ul>
               <p className="mt-3 pr-5 max-w-[800px]">{archive.description}</p>
             </div>
@@ -33,7 +35,25 @@ export default function ArchiveArticle() {
               return (
                 <>
                   <h2 className="font-black text-[30px]">{item.title}</h2>
-                  <p className="text-[18px] whitespace-pre-line">{item.content}</p>
+                  <p className="text-[18px] whitespace-pre-line">
+                    {item.content}
+                  </p>
+                  <div className="gap-10 grid grid-flow-col NEARBY_HOTELS">
+                    {archive.hotels.map((hotelId, index) => {
+                      const currentHotel = halalHotels.find(
+                        (hotel) => hotel.id === hotelId
+                      );
+                      return (
+                        <div className="font-sans">
+                          <img className="w-full h-[200px] object-center object-cover" src={currentHotel.hotelimage} alt="" />
+                          <p className="mt-5 font-bold text-lg">{currentHotel.hotel}</p>
+                          <a href={currentHotel.hotellink}>
+                            <Button className={'bg-white'}>Navigate</Button>
+                          </a>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </>
               );
             })}

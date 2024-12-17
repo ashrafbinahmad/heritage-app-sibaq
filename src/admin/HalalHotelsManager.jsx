@@ -177,7 +177,7 @@ export default function HalalHotels() {
                         </button>
                       </span>
                     </div>
-                    <img className="w-full min-h-[100px]" src={item.hotelimage} alt="" />
+                    <img className="rounded-[10px] w-full h-[200px] min-h-[100px] object-center object-cover" src={item.hotelimage} alt="" />
                     <p className="mt-5">{item.event}</p>
                   </div>
                 );

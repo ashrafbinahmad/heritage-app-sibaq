@@ -27,6 +27,7 @@ export default function ArchiveManager() {
     death: "",
     description: "",
     image: "",
+    locationlink: "",
     articles: [
       {
         title: "",
@@ -59,7 +60,7 @@ export default function ArchiveManager() {
               className={"bg-green-900 text-white rounded-[15px]"}
               onClick={() => {
                 archives.map((item, index) => {
-                  deleteData('archives', item._id)
+                  deleteData("archives", item._id);
                 });
                 setSavingTrigger(savingTrigger + 1);
               }}
@@ -67,7 +68,6 @@ export default function ArchiveManager() {
               Delete all saved archives
             </Button>
           </div>
-
 
           <div className="relative gap-5 grid grid-cols-[1fr_2fr] py-8 h-full _overflow-auto FORMSandCARDS">
             <div className="top-[2rem] sticky gap-3 grid bg-white px-5 py-10 rounded-[10px] h-min max-h-[calc(100dvh-3.5rem)] overflow-auto FORM">
@@ -81,6 +81,16 @@ export default function ArchiveManager() {
                   })
                 }
                 placeholder={"Title"}
+              />
+              <InputText
+                value={formData.locationlink}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    locationlink: e.target.value,
+                  })
+                }
+                placeholder={"Google map location link"}
               />
               <InputText
                 placeholder={"Custom link"}
