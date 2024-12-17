@@ -18,50 +18,58 @@ export const menuItems = [
   {
     display: "Home",
     link: "/#",
+    id: ''
   },
   {
     display: "Quick Links",
     link: "/#quick-links",
+    id: 'quick-links'
   },
   {
     display: "About us",
     link: "/#about-us",
+    id: 'about-us'
   },
 ];
 export default function Home() {
   return (
-    <>
+    <div className="w-screen overflow-hidden">
       <Header />
       <QuickLinks />
       <Heritagemap />
       <Archives />
       <HijriReminder />
       <Footer />
-    </>
+    </div>
   );
 }
 
 function Header() {
   const navigate = useNavigate();
   return (
-    <header className="bg-contain bg-no-repeat h-screen text-white">
+    <header className="bg-contain bg-no-repeat max-w-[100vw] h-screen text-white overflow-hidden">
       <img
-        className="-z-10 absolute m-auto w-screen"
+        className="-z-10 absolute max-xl:hidden m-auto w-screen"
         src="/images/2.png"
         alt=""
       />
+      <img
+        className="-z-10 absolute xl:hidden m-auto h-screen"
+        src="/images/headerbg-flat.png"
+        alt=""
+      />
       <div className="m-auto px-[50px] pt-[60px] max-w-[1300px] container">
-        <Navbar />
+        <Navbar className={'relative top-0'} />
 
-        <div className="grid grid-cols-[auto_max-content] mt-[120px] HEADING-AND-LOGO">
+        <div className="grid grid-cols-[auto_max-content] mt-[120px] _max-md:mt-10 HEADING-AND-LOGO">
           <div className="HEADING">
-            <p className="font-black text-[80px] leading-[1.1]">
+            <p className="font-black text-[80px] max-md:text-[30px] max-lg:text-[50px] max-2xl:text-center leading-[1.1]">
               Your Ultimate <br />
               Guide to <br />
               Sacred Sites
             </p>
           </div>
-          <div className="RIGHT">
+          <div className="max-2xl:hidden RIGHT">
             <img className="w-[300px]" src="/images/1.png" alt="" />
           </div>
         </div>
@@ -69,6 +77,7 @@ function Header() {
     </header>
   );
 }
+
 
 function QuickLinks() {
   const navigate = useNavigate();
@@ -91,8 +100,8 @@ function QuickLinks() {
     },
   ];
   return (
-    <section className="py-[8rem]">
-      <div className="grid grid-cols-4 m-auto max-w-[1300px] text-center text-white cursor-pointer">
+    <section className="py-[8rem]" id='quick-links'>
+      <div className="max-lg:block grid grid-cols-4 m-auto max-w-[1300px] text-center text-white cursor-pointer">
         {quickLinks.map((item, index) => {
           return (
             <div

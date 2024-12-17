@@ -9,13 +9,14 @@ import {
 } from "@mui/icons-material";
 import React from "react";
 import Button from "./Button";
+import { useNavigate } from "react-router-dom";
 
 const menuItems = [
-  {
-    display: "Locations",
-    link: "/admin/locations",
-    icon: <MapRounded />,
-  },
+  // {
+  //   display: "Locations",
+  //   link: "/admin/locations",
+  //   icon: <MapRounded />,
+  // },
   {
     display: "Archives",
     link: "/admin/archives",
@@ -27,13 +28,14 @@ const menuItems = [
     icon: <CalendarTodayRounded />,
   },
   {
-    display: "Halal restaurants",
-    link: "/admin/halalrestaurants",
+    display: "Halal hotels",
+    link: "/admin/halalhotels",
     icon: <RestaurantRounded />,
   },
 ];
 
 export default function AdminLayout({ children }) {
+  const navigate = useNavigate();
   return (
     <>
       <div className="grid grid-cols-[15rem_auto] h-[100dvh] overflow-hidden">
@@ -47,7 +49,11 @@ export default function AdminLayout({ children }) {
           </div>
           <ul className="mt-[5rem]">
             {menuItems.map((item, index) => (
-              <li  key={index} 
+              <li
+                key={index}
+                onClick={() => {
+                  navigate(item.link)
+                }}
                 className={`flex items-center gap-4 px-5 py-4 text-lg cursor-pointer ${
                   window.location.pathname === item.link
                     ? "bg-[#12582d]"
@@ -66,7 +72,7 @@ export default function AdminLayout({ children }) {
   );
 }
 
-export function AdminPageHead({pageTitle}) {
+export function AdminPageHead({ pageTitle }) {
   return (
     <div className="bg-white px-2 py-4 text-black HEAD">
       <div className="grid grid-cols-[auto_max-content] m-auto max-w-[1250px]">

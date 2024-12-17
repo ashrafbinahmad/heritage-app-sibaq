@@ -8,8 +8,7 @@ export default function Navbar({ className }) {
     <div className={className}>
       <nav
         className={
-          "justify-between grid grid-cols-[auto_min-content] sticky top-0 w-full max-w-[1300px] text-white m-auto " 
-          
+          "justify-between grid grid-cols-[auto_min-content] sticky top-0 w-full max-w-[1300px] text-white m-auto "
         }
       >
         <div className="w-full LEFT">
@@ -17,13 +16,15 @@ export default function Navbar({ className }) {
             HERITAGE <br /> APP
           </p>
         </div>
-        <div className="flex flex-nowrap justify-end items-end gap-10 w-fit RIGHT">
+        <div className="flex flex-nowrap justify-end items-end w-fit RIGHT">
           {menuItems.map((item, index) => {
             return (
               <div
-                className="text-nowrap"
+                className="hover:bg-green-950 p-3 rounded text-nowrap transition-all cursor-pointer"
                 onClick={() => {
+                  document.getElementById(item.id).scrollIntoView();
                   navigate(item.link);
+
                 }}
               >
                 {item.display}
